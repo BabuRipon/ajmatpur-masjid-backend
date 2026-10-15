@@ -14,6 +14,9 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 
+app.get('/health', async (req, res) =>{
+    return res.status(200).json({message: 'ok'})
+})
 app.use('/api/v1', userRoutes);
 
 app.use((err, req, res, next)=>{

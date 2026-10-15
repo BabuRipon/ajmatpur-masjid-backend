@@ -9,7 +9,7 @@ export const getAllUsers = asyncHandler(async (req, res) => {
     res.status(200).json({
         success: true,
         message:'users data fecthed success',
-        users
+        users: users.rows[0]
     })
 })
 
