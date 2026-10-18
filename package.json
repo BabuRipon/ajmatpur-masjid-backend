@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "migration:create": "node-pg-migrate create",
+    "migration:up": "dotenv -e .env -- node-pg-migrate up -d POSTGRESQL_NEON_URI",
+    "migration: down": "dotenv -e .env -- node-pg-migrate down -d POSTGRESQL_NEON_URI"
   },
   "keywords": [],
   "author": "",
@@ -19,9 +22,12 @@
     "helmet": "^8.3.0",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.23.0",
+    "serverless-http": "^4.0.0",
     "winston": "^3.19.0"
   },
   "devDependencies": {
+    "dotenv-cli": "^11.0.0",
+    "node-pg-migrate": "^9.0.0",
     "nodemon": "^3.1.14"
   }
 }
