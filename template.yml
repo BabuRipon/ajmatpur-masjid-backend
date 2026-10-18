@@ -1,20 +1,20 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
-Description: Express Api with automatic deployment
+Description: Express API with automatic deployment
 
 Resources:
   ExpressFunction:
-    type: AWS::Serverless::Function
+    Type: AWS::Serverless::Function
     Properties:
       CodeUri: .
       Handler: handler.handler
       Runtime: nodejs22.x
-      timeout: 10
+      Timeout: 10
       MemorySize: 128
       FunctionUrlConfig:
-        AuthType: None
+        AuthType: NONE
 
 Outputs:
   ApiUri:
-    Description: Express Api Url
+    Description: Express API URL
     Value: !GetAtt ExpressFunctionUrl.FunctionUrl
